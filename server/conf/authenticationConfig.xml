@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:loginConfiguration xmlns:tns="http://www.worklight.com/auth/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	 <staticResources>
+		<resource id="subscribeServlet" securityTest="SubscribeServlet">
+			<urlPatterns>/subscribeSMS*;/receiveSMS*;/ussd*</urlPatterns>
+		</resource>	
+	</staticResources>
+	 <securityTests>
+       	<customSecurityTest name="SubscribeServlet">
+       		<test realm="SubscribeServlet" isInternalUserID="true"/>
+       	</customSecurityTest>    	
+       	
+       	<customSecurityTest name="AuthSecurityTest">
+            <test isInternalUserID="true" realm="SecureRealm"/>
+        </customSecurityTest>	
+	</securityTests> 
+	
+	<realms>
+		<realm loginModule="AuthLoginModule" name="SecureRealm">
+			<className>com.worklight.integration.auth.AdapterAuthenticator</className>
+			<parameter name="login-function" value="AuthAdapter.onAuthRequired"/>
+			<parameter name="logout-function" value="AuthAdapter.onLogout"/>
+		</realm>
+		
+		<realm name="SubscribeServlet" loginModule="rejectAll">
+			<className>com.worklight.core.auth.ext.HeaderAuthenticator</className>			
+		</realm>
+	</realms>
+
+	<loginModules>
+		<loginModule name="AuthLoginModule">
+			<className>com.worklight.core.auth.ext.NonValidatingLoginModule</className>
+		</loginModule>
+
+		<loginModule name="StrongDummy">
+			<className>com.worklight.core.auth.ext.NonValidatingLoginModule</className>
+		</loginModule>
+		
+		<loginModule name="requireLogin">
+			<className>com.worklight.core.auth.ext.SingleIdentityLoginModule</className>
+		</loginModule>
+		
+		<loginModule name="rejectAll">
+			<className>com.worklight.core.auth.ext.RejectingLoginModule</className>
+		</loginModule>
+	</loginModules>
+
+</tns:loginConfiguration>

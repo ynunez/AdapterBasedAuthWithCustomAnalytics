@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Licensed Materials - Property of IBM
+			 5725-I43 (C) Copyright IBM Corp. 2006, 2013, 2015. All Rights Reserved.
+			 US Government Users Restricted Rights - Use, duplication or
+             disclosure restricted by GSA ADP Schedule Contract with IBM Corp. --><!-- Attribute "id" must be identical to application folder name --><application xmlns="http://www.worklight.com/application-descriptor" id="DemoApp" platformVersion="7.1.0.00.20160107-1821">
+    <displayName>DemoApp</displayName>
+    <description>DemoApp</description>
+    <author>
+        <name>application's author</name>
+        <email>application author's e-mail</email>
+        <homepage>http://mycompany.com</homepage>
+        <copyright>Copyright My Company</copyright>
+    </author>
+    <mainFile>index.html</mainFile>
+    <features/>
+    <targetCategory>UNDEFINED</targetCategory>
+    <licenseAppType>APPLICATION</licenseAppType>
+    <thumbnailImage>common/images/thumbnail.png</thumbnailImage>
+    
+    <userIdentityRealms/>
+    <accessTokenExpiration>3600</accessTokenExpiration>
+    
+</application>
