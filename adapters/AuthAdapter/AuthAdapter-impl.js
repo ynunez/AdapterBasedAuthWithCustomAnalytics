@@ -14,9 +14,6 @@
 * limitations under the License.
 */
 
-load("test.js");
-
-
 /**
  * Aliasing the Analytics API for easier usage
  */
